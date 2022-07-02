@@ -8,9 +8,6 @@
     "build",
     "tmp"
   ],
-  "files": [
-    "./tmp/types/radonis.d.ts"
-  ],
   "compilerOptions": {
     "outDir": "build",
     "rootDir": "./",
@@ -38,7 +35,9 @@
       "@japa/preset-adonis/build/adonis-typings",
       "@microeinhundert/radonis-server",
       "@adonisjs/i18n",
-      "@adonisjs/lucid"
+      "@adonisjs/lucid",
+      "@adonisjs/auth",
+      "@adonisjs/ally"
     ],
     "jsx": "react"
   }
