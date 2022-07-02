@@ -1,0 +1,16 @@
+{
+  "entry.client": {
+    "type": "entry",
+    "path": "C:\\Users\\gabri\\projects\\personal\\daedalus\\public\\radonis\\entry.client.js",
+    "publicPath": "\\radonis\\entry.client.js",
+    "flashMessages": [],
+    "messages": [],
+    "routes": [
+      "action",
+      "formAction",
+      "to",
+      "auto"
+    ],
+    "imports": []
+  }
+}

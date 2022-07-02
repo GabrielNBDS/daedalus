@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "node ace serve --watch",
-    "build": "node ace build --production",
+    "dev": "concurrently 'npm:dev:*'",
+    "build": "concurrently 'npm:build:*'",
     "start": "node server.js",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "dev:client": "node ace build:client --types-output-dir './tmp/types' --watch-dir './resources/!(views)/**/*.ts(x)?'",
+    "dev:server": "node ace serve --watch",
+    "build:client": "node ace build:client --production --output-dir tsconfig-out-dir",
+    "build:server": "node ace build --production"
   },
   "eslintConfig": {
     "extends": [
@@ -40,7 +44,10 @@
     "@adonisjs/assembler": "^5.8.0",
     "@japa/preset-adonis": "^1.1.0",
     "@japa/runner": "^2.0.9",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "adonis-preset-ts": "^2.1.0",
+    "concurrently": "^7.2.2",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-adonis": "^2.1.0",
@@ -53,11 +60,18 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.8.4",
+    "@adonisjs/i18n": "^1.5.0",
     "@adonisjs/repl": "^3.1.11",
     "@adonisjs/session": "^6.4.0",
     "@adonisjs/shield": "^7.0.11",
     "@adonisjs/view": "^6.1.6",
+    "@microeinhundert/radonis": "^1.6.4",
+    "@microeinhundert/radonis-server": "^1.6.4",
+    "@microeinhundert/radonis-twind": "^1.6.4",
+    "@microeinhundert/radonis-unocss": "^1.6.4",
     "proxy-addr": "^2.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"
   }

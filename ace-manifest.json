@@ -95,6 +95,43 @@
       "args": [],
       "aliases": [],
       "flags": []
+    },
+    "build:client": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": true
+      },
+      "commandPath": "@microeinhundert/radonis-server/build/commands/BuildClient",
+      "commandName": "build:client",
+      "description": "Build the Radonis client",
+      "args": [],
+      "aliases": [],
+      "flags": [
+        {
+          "name": "production",
+          "propertyName": "production",
+          "type": "boolean",
+          "description": "Build for production"
+        },
+        {
+          "name": "watch-dir",
+          "propertyName": "watchDir",
+          "type": "string",
+          "description": "Directory to watch for changes"
+        },
+        {
+          "name": "output-dir",
+          "propertyName": "outputDir",
+          "type": "string",
+          "description": "Directory to output built files to"
+        },
+        {
+          "name": "types-output-dir",
+          "propertyName": "typesOutputDir",
+          "type": "string",
+          "description": "Directory to output generated types to"
+        }
+      ]
     }
   },
   "aliases": {}
