@@ -1,0 +1,16 @@
+version: "3.1"
+
+services:
+  daedalus_db:
+    image: postgres
+    container_name: daedalus
+    environment:
+      POSTGRES_USER: daedalus
+      POSTGRES_PASSWORD: daedalus
+      POSTGRES_DB: daedalus
+    ports:
+      - 5432:5432
+    deploy:
+      resources:
+        limits:
+          memory: 512M

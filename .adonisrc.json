@@ -4,7 +4,8 @@
     "./commands",
     "@adonisjs/core/build/commands/index.js",
     "@adonisjs/repl/build/commands",
-    "@microeinhundert/radonis-server/build/commands"
+    "@microeinhundert/radonis-server/build/commands",
+    "@adonisjs/lucid/build/commands"
   ],
   "exceptionHandlerNamespace": "App/Exceptions/Handler",
   "aliases": {
@@ -24,7 +25,8 @@
     "@adonisjs/view",
     "@adonisjs/shield",
     "@microeinhundert/radonis-server",
-    "@adonisjs/i18n"
+    "@adonisjs/i18n",
+    "@adonisjs/lucid"
   ],
   "metaFiles": [
     {
