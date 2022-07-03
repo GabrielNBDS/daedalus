@@ -7,10 +7,10 @@ export default function Dashboard() {
   const { auth } = useHttpContext()
 
   return (
-    <>
-      <h1 className={tx`font-bold text-4xl text-center my-8`}>
-        Welcome to Daedalus, {auth.user!.name}
-      </h1>
-    </>
+    <div className={tx`text-center my-8`}>
+      <h1 className={tx`font-bold text-4xl mb-4`}>Welcome to Daedalus, {auth.user!.name}</h1>
+
+      <a href="/auth/logout">Logout</a>
+    </div>
   )
 }

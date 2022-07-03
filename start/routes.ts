@@ -12,3 +12,5 @@ Route.get('/dashboard', async ({ radonis }) => {
 
 Route.get('/auth/github/redirect', 'AuthController.redirect')
 Route.get('/auth/github/callback', 'AuthController.callback')
+
+Route.get('/auth/logout', 'AuthController.logout')

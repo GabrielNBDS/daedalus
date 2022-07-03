@@ -55,7 +55,7 @@ export default class AuthController {
     /**
      * Login user using the web guard
      */
-    await auth.use('web').login(user)
+    await auth.use('web').login(user, true)
     return response.redirect('/dashboard')
   }
 }
