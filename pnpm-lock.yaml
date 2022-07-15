@@ -26,6 +26,7 @@ specifiers:
   source-map-support: ^0.5.21
   tailwindcss: ^3.1.6
   typescript: ~4.6
+  unpoly: ^2.6.1
   youch: ^3.2.0
   youch-terminal: ^2.1.4
 
@@ -41,6 +42,7 @@ dependencies:
   proxy-addr: 2.0.7
   reflect-metadata: 0.1.13
   source-map-support: 0.5.21
+  unpoly: 2.6.1
 
 devDependencies:
   '@adonisjs/assembler': 5.8.0_@adonisjs+core@5.8.4
@@ -8290,6 +8292,10 @@ packages:
   /unpipe/1.0.0:
     resolution: {integrity: sha512-pjy2bYhSsufwWlKwPc+l3cN7+wuJlK6uz0YdJEOlQDbl6jo/YlPi4mb8agUkVC8BF7V8NuzeyPNqRksA3hztKQ==}
     engines: {node: '>= 0.8'}
+
+  /unpoly/2.6.1:
+    resolution: {integrity: sha512-/n4vkyILGcZKbzDlWc9xX44kwuVJb4BfbxqgtANTzwjgWKVsq2cXsKI394GeVlu77wrDch4yPgH43aD4yKaYbw==}
+    dev: false
 
   /unset-value/1.0.0:
     resolution: {integrity: sha512-PcA2tsuGSF9cnySLHTLSh2qrQiJ70mn+r+Glzxv2TWZblxsxCC52BDlZoPCsz7STd9pN7EZetkWZBAvk4cgZdQ==}
