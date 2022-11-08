@@ -31,8 +31,7 @@
       "@adonisjs/session",
       "@adonisjs/view",
       "@adonisjs/shield",
-      "@japa/preset-adonis/build/adonis-typings",
-      "@adonisjs/lucid"
+      "@japa/preset-adonis/build/adonis-typings"
     ]
   }
 }
