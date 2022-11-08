@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './resources/**/*.edge'
-  ],
+  content: ['./resources/**/*.edge'],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ['Poppins', 'sans-serif'],
+    },
   },
   plugins: [],
 }
