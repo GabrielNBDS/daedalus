@@ -55,14 +55,17 @@
     "youch-terminal": "^2.1.4"
   },
   "dependencies": {
-    "@adonisjs/core": "^5.8.4",
+    "@adonisjs/core": "^5.9.0",
+    "@adonisjs/lucid": "^18.3.0",
     "@adonisjs/repl": "^3.1.11",
     "@adonisjs/session": "^6.4.0",
-    "@adonisjs/shield": "^7.0.11",
-    "@adonisjs/view": "^6.1.6",
+    "@adonisjs/shield": "^7.1.0",
+    "@adonisjs/view": "^6.2.0",
     "@softwarecitadel/adonisjs-girouette": "^0.0.2",
     "alpinejs": "^3.10.3",
     "htmx.org": "^1.8.6",
+    "luxon": "^3.3.0",
+    "pg": "^8.10.0",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"

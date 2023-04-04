@@ -32,7 +32,8 @@
       "@adonisjs/view",
       "@adonisjs/shield",
       "@japa/preset-adonis/build/adonis-typings",
-      "@softwarecitadel/adonisjs-girouette"
+      "@softwarecitadel/adonisjs-girouette",
+      "@adonisjs/lucid"
     ]
   }
 }
