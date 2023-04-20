@@ -2,4 +2,9 @@ import Alpine from 'alpinejs'
 
 window.Alpine = Alpine
 
-Alpine.start()
+Alpine.store('sidebar', {
+  isOpen: false,
+  close() {
+    this.isOpen = false
+  },
+})

@@ -15,16 +15,33 @@
   },
   "preloads": [
     "./start/routes",
-    "./start/kernel"
+    "./start/kernel",
+    {
+      "file": "./start/globals",
+      "environment": [
+        "web"
+      ]
+    },
+    {
+      "file": "./start/icons",
+      "environment": [
+        "web"
+      ]
+    }
   ],
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
+    "./providers/Up/Provider",
     "@adonisjs/session",
     "@adonisjs/view",
     "@adonisjs/shield",
     "@softwarecitadel/adonisjs-girouette",
-    "@adonisjs/lucid"
+    "@adonisjs/lucid",
+    "@adonisjs/auth",
+    "@adonisjs/attachment-lite",
+    "@adonisjs/drive-s3",
+    "@adonisjs/lucid-slugify"
   ],
   "metaFiles": [
     {

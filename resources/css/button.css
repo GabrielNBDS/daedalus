@@ -1,0 +1,284 @@
+/* base */
+.btn {
+  @apply px-4 flex items-center justify-center transition-colors text-white font-medium rounded-md active:translate-y-[1px] text-sm h-9 border border-transparent;
+}
+.btn svg {
+  @apply w-5 h-5
+}
+
+/* rounded */
+
+.btn-rounded-none {
+  @apply rounded-none
+}
+
+.btn-rounded-sm {
+  @apply rounded
+}
+
+.btn-rounded-lg {
+  @apply rounded-lg
+}
+
+.btn-rounded-full {
+  @apply rounded-full
+}
+
+/* size */
+
+.btn-size-sm {
+  @apply text-xs py-1 h-8
+}
+.btn-size-sm svg {
+  @apply w-[18px] h-[18px]
+}
+
+.btn-size-lg {
+  @apply text-base h-10
+}
+.btn-size-lg svg {
+  @apply w-6 h-6
+}
+
+.btn-size-xl {
+  @apply text-lg h-12
+}
+.btn-size-xl svg {
+  @apply w-7 h-7
+}
+
+/* filled colors */
+
+.btn-dark {
+  @apply bg-dark-6 hover:bg-dark-7
+}
+
+.btn-gray {
+  @apply bg-gray-6 hover:bg-gray-7
+}
+
+.btn-red {
+  @apply bg-red-7 hover:bg-red-8
+}
+
+.btn-pink {
+  @apply bg-pink-6 hover:bg-pink-7
+}
+
+.btn-grape {
+  @apply bg-grape-6 hover:bg-grape-7
+}
+
+.btn-violet {
+  @apply bg-violet-6 hover:bg-violet-7
+}
+
+.btn-indigo {
+  @apply bg-indigo-6 hover:bg-indigo-7
+}
+
+.btn-blue {
+  @apply bg-blue-6 hover:bg-blue-7
+}
+
+.btn-cyan {
+  @apply bg-cyan-6 hover:bg-cyan-7
+}
+
+.btn-teal {
+  @apply bg-teal-6 hover:bg-teal-7
+}
+
+.btn-green {
+  @apply bg-green-6 hover:bg-green-7
+}
+
+.btn-lime {
+  @apply bg-lime-6 hover:bg-lime-7
+}
+
+.btn-yellow {
+  @apply bg-yellow-6 hover:bg-yellow-7
+}
+
+.btn-orange {
+  @apply bg-orange-6 hover:bg-orange-7
+}
+
+/* light */
+
+.btn-dark.btn-light {
+  @apply bg-dark-0 hover:bg-dark-1 text-dark-7
+}
+
+.btn-gray.btn-light {
+  @apply bg-gray-1 hover:bg-gray-2 text-gray-7
+}
+
+.btn-red.btn-light {
+  @apply bg-red-0 hover:bg-red-1 text-red-7
+}
+
+.btn-pink.btn-light {
+  @apply bg-pink-0 hover:bg-pink-1 text-pink-7
+}
+
+.btn-grape.btn-light {
+  @apply bg-grape-0 hover:bg-grape-1 text-grape-7
+}
+
+.btn-violet.btn-light {
+  @apply bg-violet-0 hover:bg-violet-1 text-violet-7
+}
+
+.btn-indigo.btn-light {
+  @apply bg-indigo-0 hover:bg-indigo-1 text-indigo-7
+}
+
+.btn-blue.btn-light {
+  @apply bg-blue-0 hover:bg-blue-1 text-blue-7
+}
+
+.btn-cyan.btn-light {
+  @apply bg-cyan-0 hover:bg-cyan-1 text-cyan-7
+}
+
+.btn-teal.btn-light {
+  @apply bg-teal-0 hover:bg-teal-1 text-teal-7
+}
+
+.btn-green.btn-light {
+  @apply bg-green-0 hover:bg-green-1 text-green-7
+}
+
+.btn-lime.btn-light {
+  @apply bg-lime-0 hover:bg-lime-1 text-lime-7
+}
+
+.btn-yellow.btn-light {
+  @apply bg-yellow-0 hover:bg-yellow-1 text-yellow-7
+}
+
+.btn-orange.btn-light {
+  @apply bg-orange-0 hover:bg-orange-1 text-orange-7
+}
+
+/* outline */
+
+.btn-dark.btn-outline {
+  @apply bg-transparent border-dark-7 hover:bg-dark-1 text-dark-7
+}
+
+.btn-gray.btn-outline {
+  @apply bg-transparent border-gray-7 hover:bg-gray-1 text-gray-7
+}
+
+.btn-red.btn-outline {
+  @apply bg-transparent border-red-7 hover:bg-red-1 text-red-7
+}
+
+.btn-pink.btn-outline {
+  @apply bg-transparent border-pink-7 hover:bg-pink-1 text-pink-7
+}
+
+.btn-grape.btn-outline {
+  @apply bg-transparent border-grape-7 hover:bg-grape-1 text-grape-7
+}
+
+.btn-violet.btn-outline {
+  @apply bg-transparent border-violet-7 hover:bg-violet-1 text-violet-7
+}
+
+.btn-indigo.btn-outline {
+  @apply bg-transparent border-indigo-7 hover:bg-indigo-1 text-indigo-7
+}
+
+.btn-blue.btn-outline {
+  @apply bg-transparent border-blue-7 hover:bg-blue-1 text-blue-7
+}
+
+.btn-cyan.btn-outline {
+  @apply bg-transparent border-cyan-7 hover:bg-cyan-1 text-cyan-7
+}
+
+.btn-teal.btn-outline {
+  @apply bg-transparent border-teal-7 hover:bg-teal-1 text-teal-7
+}
+
+.btn-green.btn-outline {
+  @apply bg-transparent border-green-7 hover:bg-green-1 text-green-7
+}
+
+.btn-lime.btn-outline {
+  @apply bg-transparent border-lime-7 hover:bg-lime-1 text-lime-7
+}
+
+.btn-yellow.btn-outline {
+  @apply bg-transparent border-yellow-7 hover:bg-yellow-1 text-yellow-7
+}
+
+.btn-orange.btn-outline {
+  @apply bg-transparent border-orange-7 hover:bg-orange-1 text-orange-7
+}
+
+/* subtle */
+
+.btn-dark.btn-subtle {
+  @apply bg-transparent hover:bg-dark-1 text-dark-7
+}
+
+.btn-gray.btn-subtle {
+  @apply bg-transparent hover:bg-gray-1 text-gray-7
+}
+
+.btn-red.btn-subtle {
+  @apply bg-transparent hover:bg-red-1 text-red-7
+}
+
+.btn-pink.btn-subtle {
+  @apply bg-transparent hover:bg-pink-1 text-pink-7
+}
+
+.btn-grape.btn-subtle {
+  @apply bg-transparent hover:bg-grape-1 text-grape-7
+}
+
+.btn-violet.btn-subtle {
+  @apply bg-transparent hover:bg-violet-1 text-violet-7
+}
+
+.btn-indigo.btn-subtle {
+  @apply bg-transparent hover:bg-indigo-1 text-indigo-7
+}
+
+.btn-blue.btn-subtle {
+  @apply bg-transparent hover:bg-blue-1 text-blue-7
+}
+
+.btn-cyan.btn-subtle {
+  @apply bg-transparent hover:bg-cyan-1 text-cyan-7
+}
+
+.btn-teal.btn-subtle {
+  @apply bg-transparent hover:bg-teal-1 text-teal-7
+}
+
+.btn-green.btn-subtle {
+  @apply bg-transparent hover:bg-green-1 text-green-7
+}
+
+.btn-lime.btn-subtle {
+  @apply bg-transparent hover:bg-lime-1 text-lime-7
+}
+
+.btn-yellow.btn-subtle {
+  @apply bg-transparent hover:bg-yellow-1 text-yellow-7
+}
+
+.btn-orange.btn-subtle {
+  @apply bg-transparent hover:bg-orange-1 text-orange-9
+}
+
+.btn.btn-disabled {
+  @apply cursor-default bg-gray-3 text-gray-6 hover:bg-gray-3 active:translate-y-0 border-none
+}

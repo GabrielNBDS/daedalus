@@ -1,0 +1,13 @@
+@each(item in items)
+  <div class="flex gap-2">
+    <input
+      type="radio"
+      id="{{ item.value }}-{{ name }}"
+      name="{{ name }}"
+      value="{{ item.value }}"
+      {{ item.value === checked ? 'checked' : '' }}
+    />
+
+    <label for="{{ item.value }}-{{ name }}">{{ item.label }}</label>
+  </div>
+@endeach

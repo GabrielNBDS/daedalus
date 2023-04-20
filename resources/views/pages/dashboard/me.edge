@@ -1,0 +1,25 @@
+@layout('layouts/dashboard')
+@set('title', 'Seu Perfil')
+
+@section('body')
+  <main class="max-w-screen-xl mx-auto w-full px-4 py-8">
+    <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Seu perfil</h1>
+
+    <div class="flex items-center gap-4">
+      @!avatar({ name: auth.user.name, url: auth.user.avatar?.url })
+      <div>
+        <p class="text-xs">
+          <strong class="block text-lg font-medium">{{ auth.user.name }}</strong>
+
+          <span>{{ auth.user.email }}</span>
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-4 mt-8">
+      @!button({ label: 'Editar perfil', component: 'a', href: route('me.edit'), rightIcon: 'ph:user', })
+      @!button({ label: 'Trocar senha', component: 'a', href: route('me.change-password-view'), rightIcon: 'ph:lock' })
+      @!button({ label: 'Sair', color: 'red', rightIcon: 'ph:sign-out', component: 'a', href: route('logout') })
+    </div>
+  </main>
+@end

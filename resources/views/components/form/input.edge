@@ -1,0 +1,35 @@
+@set('value', value || flashMessages.get(name) || '')
+@set('iconSize', size === 'sm' ? 4 : size === 'lg' ? 6 : size === 'xl' ? 7 : 5)
+
+<div class="relative w-full">
+  @if(label)
+    @!form.label({ label, name})
+  @end
+
+  <input
+    id="{{ name }}"
+    class="{{
+      [
+        'input',
+        icon ? '!pr-12' : '',
+        color ? `input-${color}` : '',
+        rounded ? `input-rounded-${rounded}` : '',
+        size ? `input-size-${size}` : '',
+        className
+      ].filter(item => item !== '').join(' ').trim()
+    }}"
+    {{ $props.serializeExcept(['label', 'className', 'component', 'size', 'rounded', 'color', 'variant', 'fatBorder']) }}
+  />
+
+  @if(icon)
+    <span class="absolute text-gray-5 -translate-y-1/2 pointer-events-none top-1/2 right-4">
+      @svg(icon, { class: `w-${iconSize} h-${iconSize}` })
+    </span>
+  @end
+
+  @if(!hideError)
+    @!form.error({ field: name })
+  @end
+</div>
+
+

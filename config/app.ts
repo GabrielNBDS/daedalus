@@ -50,7 +50,7 @@ export const http: ServerConfig = {
   | so on.
   |
   */
-  allowMethodSpoofing: false,
+  allowMethodSpoofing: true,
 
   /*
   |--------------------------------------------------------------------------
@@ -258,7 +258,7 @@ export const assets: AssetsManagerConfig = {
   */
   script: {
     attributes: {
-      defer: true,
+      defer: false,
     },
   },
 

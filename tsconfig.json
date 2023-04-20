@@ -33,7 +33,11 @@
       "@adonisjs/shield",
       "@japa/preset-adonis/build/adonis-typings",
       "@softwarecitadel/adonisjs-girouette",
-      "@adonisjs/lucid"
+      "@adonisjs/lucid",
+      "@adonisjs/auth",
+      "@adonisjs/attachment-lite",
+      "@adonisjs/drive-s3",
+      "@adonisjs/lucid-slugify"
     ]
   }
 }

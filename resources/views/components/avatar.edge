@@ -1,0 +1,22 @@
+{{-- Classes to use for sizing the avatar pill --}}
+@set('classes', 'h-16 min-h-16 w-16 min-w-16')
+
+@if(size === 'sm')
+  @set('classes', 'h-10 min-h-10 w-10 min-w-10 text-xs')
+@elseif(size === 'lg')
+  @set('classes', 'h-32 min-h-32 w-32 min-w-32 text-3xl')
+@end
+
+@if(url)
+  <div
+    class="rounded-full {{ classes }} bg-cover"
+    style="background-image: url('{{ url }}');"
+  >
+  </div>
+@else
+  <div
+    class="rounded-full {{ classes }} bg-gray-2 grid place-content-center"
+  >
+    {{ name.split(' ').slice(0,2).map(item => item[0]).join('') }}
+  </div>
+@end

@@ -1,0 +1,59 @@
+.badge {
+  @apply max-w-max whitespace-nowrap rounded-full bg-blue-1 px-2.5 py-0.5 text-sm text-blue-7
+}
+
+.badge-dark {
+  @apply bg-dark-1 text-dark-7
+}
+
+.badge-gray {
+  @apply bg-gray-1 text-gray-7
+}
+
+.badge-red {
+  @apply bg-red-1 text-red-8
+}
+
+.badge-pink {
+  @apply bg-pink-1 text-pink-7
+}
+
+.badge-grape {
+  @apply bg-grape-1 text-grape-7
+}
+
+.badge-violet {
+  @apply bg-violet-1 text-violet-7
+}
+
+.badge-indigo {
+  @apply bg-indigo-1 text-indigo-7
+}
+
+.badge-blue {
+  @apply bg-blue-1 text-blue-7
+}
+
+.badge-cyan {
+  @apply bg-cyan-1 text-cyan-7
+}
+
+.badge-teal {
+  @apply bg-teal-1 text-teal-7
+}
+
+.badge-green {
+  @apply bg-green-1 text-green-7
+}
+
+.badge-lime {
+  @apply bg-lime-1 text-lime-7
+}
+
+.badge-yellow {
+  @apply bg-yellow-1 text-yellow-7
+}
+
+.badge-orange {
+  @apply bg-orange-1 text-orange-7
+}

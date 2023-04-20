@@ -1,0 +1,159 @@
+.label {
+  @apply block text-sm font-medium text-gray-9
+}
+
+.input {
+  @apply w-full px-3 h-9 text-sm border border-gray-4 focus:border-blue-7 rounded flex outline-none ring-0 ring-offset-0;
+  --tw-ring-shadow: 0 0 #000 !important;
+}
+
+.input.active, .input:focus {
+  @apply border-[1.5px] border-blue-7
+}
+
+/* rounded */
+
+.input-rounded-none {
+  @apply rounded-none
+}
+
+.input-rounded-sm {
+  @apply rounded
+}
+
+.input-rounded-lg {
+  @apply rounded-lg
+}
+
+.input-rounded-full {
+  @apply rounded-full
+}
+
+/* size */
+
+.input-size-sm {
+  @apply text-xs h-8
+}
+
+.input-size-lg {
+  @apply text-base h-10
+}
+
+.input-size-xl {
+  @apply text-lg h-12
+}
+
+
+/* Colors */
+
+.input-dark {
+  @apply focus:border-dark-9
+}
+.input-dark.active {
+  @apply border-dark-9
+}
+
+
+.input-gray {
+  @apply focus:border-gray-7
+}
+.input-gray.active {
+  @apply border-gray-7
+}
+
+
+.input-red {
+  @apply focus:border-red-7
+}
+.input-red.active {
+  @apply border-red-7
+}
+
+
+.input-pink {
+  @apply focus:border-pink-6
+}
+.input-pink.active {
+  @apply border-pink-6
+}
+
+
+.input-grape {
+  @apply focus:border-grape-6
+}
+.input-grape.active {
+  @apply border-grape-6
+}
+
+
+.input-violet {
+  @apply focus:border-violet-6
+}
+.input-violet.active {
+  @apply border-violet-6
+}
+
+
+.input-indigo {
+  @apply focus:border-indigo-7
+}
+.input-indigo.active {
+  @apply border-indigo-7
+}
+
+
+.input-blue {
+  @apply focus:border-blue-6
+}
+.input-blue.active {
+  @apply border-blue-6
+}
+
+
+.input-cyan {
+  @apply focus:border-cyan-6
+}
+.input-cyan.active {
+  @apply border-cyan-6
+}
+
+
+.input-teal {
+  @apply focus:border-teal-5
+}
+.input-teal.active {
+  @apply border-teal-5
+}
+
+
+.input-green {
+  @apply focus:border-green-6
+}
+.input-green.active {
+  @apply border-green-6
+}
+
+
+.input-lime {
+  @apply focus:border-lime-5
+}
+.input-lime.active {
+  @apply border-lime-5
+}
+
+
+.input-yellow {
+  @apply focus:border-yellow-5
+}
+.input-yellow.active {
+  @apply border-yellow-5
+}
+
+
+.input-orange {
+  @apply focus:border-orange-6
+}
+.input-orange.active {
+  @apply border-orange-6
+}
+

@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
-  {{-- Alpine and turbo are not friends as of now and hence we need to disable turbo cache --}}
-  <meta name="turbo-cache-control" content="no-cache">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/app.css') }}">
   @entryPointStyles('app')
-</head>
-<body>
-  @!section('body')
   @entryPointScripts('app')
+</head>
+<body layout-root>
+  @!section('body')
+  <script>
+    window.Alpine.start()
+  </script>
 </body>
 </html>

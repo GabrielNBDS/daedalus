@@ -1,0 +1,26 @@
+@set('component', component || 'button')
+
+<{{ component }}
+  {{ $props.serializeExcept(['label', 'className', 'component', 'size', 'rounded', 'color', 'variant']) }}
+  class="{{
+    [
+      'btn',
+      color ? `btn-${color}` : 'btn-blue',
+      rounded ? `btn-rounded-${rounded}` : '',
+      size ? `btn-size-${size}` : '',
+      variant ? `btn-${variant}` : '',
+      disabled ? `btn-disabled` : '',
+      className || ''
+    ].join(' ').trim()
+  }}"
+>
+  <span class="flex items-center">
+    @if(leftIcon)
+      @svg(leftIcon, { class: 'mr-2' })
+    @end
+    {{ label }}
+    @if(rightIcon)
+      @svg(rightIcon, { class: 'ml-2' })
+    @end
+  </span>
+</{{ component }}>

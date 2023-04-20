@@ -1,0 +1,24 @@
+<div layout-table>
+  <div class="overflow-x-auto rounded-lg border border-gray-2">
+    <table class="min-w-full divide-y-2 divide-gray-2 text-sm">
+      <thead>
+        <tr class="bg-main">
+          @each(item in head)
+            <th
+              class="th"
+            >
+              {{ item }}
+            </th>
+          @endeach
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-2">
+        {{{ await $slots.main() }}}
+      </tbody>
+    </table>
+  </div>
+
+  @!table.pagination({ model: model })
+</div>
+

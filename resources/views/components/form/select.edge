@@ -1,0 +1,20 @@
+<div class="relative w-full">
+  @if(label)
+    @!form.label({ label, name})
+  @end
+
+  <select id="{{ name }}" class="input" {{ $props.serializeExcept(['value', 'items', 'selected']) }}>
+    @each(item in items)
+      <option
+        {{ selected === item.value ? 'selected' : ''}}
+        value="{{ item.value }}"
+      />
+        {{ item?.label || item?.value  }}
+      </option>
+    @endeach
+  </select>
+
+  @if(!hideError)
+    @!form.error({ field: name })
+  @end
+</div>

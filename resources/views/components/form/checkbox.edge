@@ -1,0 +1,28 @@
+@set('value', value || '1')
+
+<div>
+  <label for="{{ name }}" class="flex gap-4">
+    <input
+      type="checkbox"
+      class="{{
+        [
+          'checkbox',
+          color ? `checkbox-${color}` : '',
+          className
+        ].filter(item => item !== '').join(' ').trim()
+      }}"
+      id="{{ name }}"
+      name="{{ name }}"
+      value="{{ value }}"
+      {{ flashMessages.get(name) === value ? "checked" : "" }}
+    />
+
+    <span class="block text-sm font-medium text-gray-7">
+      {{ label }}
+    </span>
+  </label>
+
+  @if(!hideError)
+    @!form.error({ field: name })
+  @end
+</div>

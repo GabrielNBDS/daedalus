@@ -1,0 +1,87 @@
+@if(up.targetIncludes('[layout-sidebar]'))
+  <div layout-sidebar x-data>
+    <header
+      x-bind:class="! $store.sidebar.isOpen ? '' : '!hidden'"
+      class="px-4 h-16 items-center bg-white fixed top-0 w-screen lg:hidden border-b border-gray-3 flex justify-between"
+    >
+      <a
+        href="/dashboard"
+        class="flex max-w-min"
+      >
+        <p
+          class="grid h-10 w-32 place-content-center rounded-lg bg-gray-1 text-xs text-gray-7"
+        >
+          Logo
+        </p>
+      </a>
+
+      <button @click="$store.sidebar.isOpen = true">
+        @svg('ph:list', { class: 'w-8 h-8 text-gray-6', size: 'none' })
+      </button>
+    </header>
+
+    <div
+      x-bind:class="! $store.sidebar.isOpen ? '' : '!flex'"
+      class="top-0 hidden lg:flex h-screen flex-col w-screen lg:max-w-xs justify-between border-r border-gray-3 bg-white fixed left-0"
+    >
+      <div class="px-4">
+        <div class="flex justify-between  h-16 items-center">
+          <a href="/dashboard" class="flex max-w-min">
+            <span
+              class="grid h-10 w-32 place-content-center rounded-lg bg-gray-1 text-xs text-gray-6"
+            >
+              Logo
+            </span>
+          </a>
+
+          <button class="lg:hidden" @click="$store.sidebar.isOpen = false">
+            <i>
+              @svg('ph:x', { class: 'w-8 h-8 text-gray-6', size: 'none' })
+            </i>
+          </button>
+        </div>
+
+        <nav aria-label="Main Nav" class="mt-2 flex flex-col space-y-1">
+          @!sidebar.link({ label: 'Usuários', href: route('users.index'), id: 'usuarios' })
+        </nav>
+      </div>
+
+      <div
+        class="sticky inset-x-0 bottom-0 border-t border-gray-3 p-4"
+      >
+        <a
+          href="{{ route('me') }}"
+          class="flex items-center gap-2 bg-white hover:bg-gray-1 transition-all rounded-md py-4 px-2 hover:bg-gray-50"
+        >
+          @!avatar({ size: 'sm', name: auth.user.name, url: auth.user.avatar?.url })
+
+          <div>
+            <p class="text-xs">
+              <strong class="block font-medium">{{ auth.user.name }}</strong>
+
+              <span>{{ auth.user.email }}</span>
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      var sidebarLinks = document.querySelectorAll('.sidebarLink')
+
+      var initialActiveLink = document.querySelector(`#${window.location.pathname.split('/')[2]}`)
+      initialActiveLink?.classList?.add('active')
+
+      up.on('up:location:changed', function() {
+        Alpine.store('sidebar').close()
+
+        sidebarLinks.forEach(function(element) {
+          element?.classList?.remove('active')
+        })
+
+        var activeLink = document.querySelector(`#${window.location.pathname.split('/')[2]}`)
+        activeLink?.classList?.add('active')
+      });
+    </script>
+  </div>
+@endif

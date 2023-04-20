@@ -1,2 +1,26 @@
 @import "./tailwind.css";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import "./button.css";
+@import "./input.css";
+@import "./checkbox.css";
+@import "./badge.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.sidebarLink {
+  @apply flex items-center gap-2 rounded-lg px-4 py-2 text-gray-6 hover:bg-gray-1 hover:text-gray-7;
+}
+
+.sidebarLink.active {
+  @apply text-gray-7 bg-gray-1;
+}
+
+.th {
+  @apply whitespace-nowrap px-4 py-2 text-left font-medium text-gray-9
+}
+
+.tr {
+  @apply hover:bg-gray-0
+}
+
+.td {
+  @apply whitespace-nowrap px-4 py-2 text-gray-7
+}

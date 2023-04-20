@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/app.css') }}">
+  @entryPointStyles('app')
+  @entryPointScripts('app')
+  </head>
+<body layout-root>
+  <div class="flex flex-col lg:flex-row lg:ml-80 mt-16 lg:mt-0">
+    @include('partials/sidebar')
+    <div up-main layout-main class="flex flex-col w-full">
+      @!section('body')
+    </div>
+  </div>
+
+  <script>
+    window.Alpine.start()
+  </script>
+</body>
+</html>

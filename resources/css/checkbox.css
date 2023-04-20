@@ -1,0 +1,61 @@
+.checkbox {
+  @apply h-5 w-5 rounded-md border-gray-2 bg-transparent shadow-sm focus:outline-blue-7 text-blue-7
+}
+
+/* Colors */
+
+.checkbox-dark {
+  @apply focus:outline-dark-9 text-dark-9
+}
+
+.checkbox-gray {
+  @apply focus:outline-gray-7 text-gray-7
+}
+
+.checkbox-red {
+  @apply focus:outline-red-7 text-red-7
+}
+
+.checkbox-pink {
+  @apply focus:outline-pink-6 text-pink-6
+}
+
+.checkbox-grape {
+  @apply focus:outline-grape-6 text-grape-6
+}
+
+.checkbox-violet {
+  @apply focus:outline-violet-6 text-violet-6
+}
+
+.checkbox-indigo {
+  @apply focus:outline-indigo-7 text-indigo-7
+}
+
+.checkbox-blue {
+  @apply focus:outline-blue-6 text-blue-6
+}
+
+.checkbox-cyan {
+  @apply focus:outline-cyan-6 text-cyan-6
+}
+
+.checkbox-teal {
+  @apply focus:outline-teal-5 text-teal-5
+}
+
+.checkbox-green {
+  @apply focus:outline-green-6 text-green-6
+}
+
+.checkbox-lime {
+  @apply focus:outline-lime-5 text-lime-5
+}
+
+.checkbox-yellow {
+  @apply focus:outline-yellow-5 text-yellow-5
+}
+
+.checkbox-orange {
+  @apply focus:outline-orange-6 text-orange-6
+}

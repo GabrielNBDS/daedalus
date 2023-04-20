@@ -1,0 +1,49 @@
+@layout('layouts/dashboard')
+@set('title', `Editar ${user.name}`)
+@set('rolesSelectValues', await getRolesSelectValues())
+
+@section('body')
+  <main class="max-w-screen-xl mx-auto w-full px-4 py-8">
+    <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Editar "{{ user.name }}"</h1>
+    <form
+      up-submit
+      method="POST"
+      action="{{ route('users.update', { id: user.id }) }}"
+      class="flex flex-col gap-4 mt-4 max-w-lg"
+
+    >
+      {{ csrfField() }}
+      @!form.input({
+        label: 'Nome',
+        name: 'name',
+        value: flashMessages.get('name') || user.name
+      })
+
+      @!form.input({
+        label: 'E-mail',
+        name: 'email',
+        type: 'email',
+        value: flashMessages.get('email') || user.email
+      })
+
+      @!form.select({ label: 'Papel', name: 'roleId', items: rolesSelectValues, selected: user.roleId })
+
+      <div class="flex justify-between">
+        @!button({
+          component: 'a',
+          href: route('users.read', [user.slug]),
+          variant: 'subtle',
+          color: 'gray',
+          label: 'Voltar',
+          leftIcon: 'ph-arrow-left',
+        })
+
+        @!button({
+          type: 'submit',
+          label: 'Salvar',
+          rightIcon: 'ph:floppy-disk'
+        })
+      </div>
+    </form>
+  </main>
+@end

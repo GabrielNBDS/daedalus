@@ -1,0 +1,23 @@
+@layout('layouts/dashboard')
+@set('title', `Editar ${user.name}`)
+
+@section('body')
+  <main class="max-w-screen-xl mx-auto w-full px-2 md:px-4 my-8 ">
+    <a href="{{ route('users.index') }}" class="text-gray-7 flex items-center gap-1 text-sm mb-2">
+      {{ svg('ph-arrow-left', { class: 'text-lg'})}} Voltar
+    </a>
+    <div class="border border-gray-2 rounded-lg relative p-4">
+      <div class="flex flex-wrap items-center gap-4">
+        @!avatar({ size: 'lg', name: user.name, url: user.avatar?.url })
+
+        <div class="flex flex-col">
+          <h1 class="text-xl font-bold text-gray-8 md:text-2xl">{{ user.name }}</h1>
+          <p class="text-gray-7">{{ user.email}}</p>
+          @!badge({ label: user.role.name })
+        </div>
+      </div>
+
+      <a href="{{ route('users.edit', [user.slug])}}" class="text-gray-7 text-2xl cursor-pointer absolute top-4 right-4">{{ svg('ph:note-pencil') }}</a>
+    </div>
+  </main>
+@end
