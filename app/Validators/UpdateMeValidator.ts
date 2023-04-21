@@ -6,10 +6,7 @@ export default class UpdateMeValidator {
 
   public schema = schema.create({
     name: schema.string({ trim: true }),
-    email: schema.string({ trim: true }, [
-      rules.email(),
-      rules.unique({ column: 'email', table: 'users' }),
-    ]),
+    email: schema.string({ trim: true }, [rules.email()]),
   })
 
   public messages: CustomMessages = {

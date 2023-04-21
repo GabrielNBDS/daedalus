@@ -37,7 +37,8 @@
       "@adonisjs/auth",
       "@adonisjs/attachment-lite",
       "@adonisjs/drive-s3",
-      "@adonisjs/lucid-slugify"
+      "@adonisjs/lucid-slugify",
+      "@adonisjs/bouncer"
     ]
   }
 }

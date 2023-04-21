@@ -7,7 +7,9 @@ import UpdateUserValidator from 'App/Validators/UpdateUserValidator'
 export default class UsersController {
   @Get('/dashboard/usuarios', 'users.index')
   @Middleware('auth')
-  public async index({ view, request }: HttpContextContract) {
+  public async index({ view, request, bouncer }: HttpContextContract) {
+    await bouncer.with('UserPolicy').authorize('index')
+
     const perPage = 10
     const page = request.input('page', 1)
 
@@ -20,13 +22,28 @@ export default class UsersController {
 
   @Get('/dashboard/usuarios/criar', 'users.create')
   @Middleware('auth')
-  public async create({ view }: HttpContextContract) {
+  public async create({ view, bouncer }: HttpContextContract) {
+    await bouncer.with('UserPolicy').authorize('create')
     return view.render('pages/dashboard/users/create')
+  }
+
+  @Post('/users', 'users.store')
+  @Middleware('auth')
+  public async store({ bouncer, request, response }: HttpContextContract) {
+    await bouncer.with('UserPolicy').authorize('create')
+
+    const { name, email } = await request.validate(CreateUserValidator)
+
+    await User.create({ name, email, password: '123456' })
+
+    return response.redirect().toRoute('users.index')
   }
 
   @Get('/dashboard/usuarios/:slug', 'users.read')
   @Middleware('auth')
-  public async read({ view, request }: HttpContextContract) {
+  public async read({ view, request, bouncer }: HttpContextContract) {
+    await bouncer.with('UserPolicy').authorize('read')
+
     const slug = request.param('slug')
 
     const user = await User.findByOrFail('slug', slug)
@@ -38,7 +55,9 @@ export default class UsersController {
 
   @Get('/dashboard/usuarios/:slug/editar', 'users.edit')
   @Middleware('auth')
-  public async edit({ auth, view, request, response }: HttpContextContract) {
+  public async edit({ auth, bouncer, view, request, response }: HttpContextContract) {
+    await bouncer.with('UserPolicy').authorize('update')
+
     const loggedUser = auth.user!
 
     const slug = request.param('slug')
@@ -60,40 +79,40 @@ export default class UsersController {
 
   @Post('/users/:id/update', 'users.update')
   @Middleware('auth')
-  public async update({ request, response }: HttpContextContract) {
+  public async update({ bouncer, session, request, response }: HttpContextContract) {
+    await bouncer.with('UserPolicy').authorize('update')
+
     const id = request.param('id')
 
-    const data = await request.validate(UpdateUserValidator)
+    const { name, email, roleId } = await request.validate(UpdateUserValidator)
 
     const user = await User.findOrFail(id)
 
-    user.merge(data)
+    const alreadyExistEmail = await User.findBy('email', email)
+    if (alreadyExistEmail && user.email !== email) {
+      session.flash({
+        name,
+        email,
+        errors: { email: ['E-mail em uso'] },
+      })
+
+      return response.redirect().back()
+    }
+    user.merge({ name, email, roleId })
     await user.save()
 
     return response.redirect().toRoute('users.read', [user.slug])
   }
 
-  @Post('/users', 'users.store')
-  @Middleware('auth')
-  public async store({ request, response }: HttpContextContract) {
-    const { name, email } = await request.validate(CreateUserValidator)
-
-    await User.create({ name, email, password: '123456' })
-
-    return response.redirect().toRoute('users.index')
-  }
-
   @Post('/users/:id/delete', 'users.delete')
   @Middleware('auth')
-  public async delete({ auth, request, response }: HttpContextContract) {
-    const currentUser = auth.user!
+  public async delete({ bouncer, request, response }: HttpContextContract) {
     const id = request.param('id') as string
 
-    if (currentUser.id === Number(id)) {
-      return response.redirect().back()
-    }
-
     const user = await User.findOrFail(id)
+
+    await bouncer.with('UserPolicy').authorize('delete', user)
+
     await user.delete()
 
     return response.redirect().toRoute('users.index')

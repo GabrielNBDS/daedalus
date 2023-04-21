@@ -42,7 +42,9 @@
         </div>
 
         <nav aria-label="Main Nav" class="mt-2 flex flex-col space-y-1">
-          @!sidebar.link({ label: 'Usuários', href: route('users.index'), id: 'usuarios' })
+          @can('UserPolicy.create')
+            @!sidebar.link({ label: 'Usuários', href: route('users.index'), id: 'usuarios' })
+          @end
         </nav>
       </div>
 

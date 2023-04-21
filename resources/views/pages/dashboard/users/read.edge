@@ -17,7 +17,40 @@
         </div>
       </div>
 
-      <a href="{{ route('users.edit', [user.slug])}}" class="text-gray-7 text-2xl cursor-pointer absolute top-4 right-4">{{ svg('ph:note-pencil') }}</a>
+
+      <div class="absolute flex gap-2 top-4 right-4">
+        @can('UserPolicy.delete', user)
+          @component('components/modal')
+            @slot('button')
+              <button
+                @click="showModal = !showModal"
+                class="text-gray-7 text-2xl cursor-pointer"
+              >
+                {{ svg('ph:trash') }}
+              </button>
+            @end
+
+            <div class="p-8 bg-white rounded shadow-2xl mb-[60vh]">
+              <h2 class="text-lg font-bold">Quer mesmo deletar "{{ user.name }}"?</h2>
+
+              <p class="mt-2 text-sm text-gray-500">
+                Essa ação não pode ser desfeita.
+              </p>
+
+              <div class="flex items-center gap-2 justify-end mt-8 text-xs">
+                @!button({ '@click': 'showModal = false', type: 'button', label: 'Não', color: 'gray', variant: 'light' })
+
+                <form action="{{ route('users.delete', [user.id]) }}" method="POST">
+                  {{ csrfField() }}
+                  @!button({ label: 'Sim, tenho certeza.', color: 'red', type: 'submit' })
+                </form>
+              </div>
+            </div>
+          @end
+        @end
+
+        <a href="{{ route('users.edit', [user.slug])}}" class="text-gray-7 text-2xl cursor-pointer">{{ svg('ph:note-pencil') }}</a>
+      </div>
     </div>
   </main>
 @end

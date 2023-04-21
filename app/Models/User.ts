@@ -24,6 +24,7 @@ export default class User extends BaseModel {
   @slugify({
     strategy: 'shortId',
     fields: ['name'],
+    allowUpdates: true,
   })
   public slug: string
 
