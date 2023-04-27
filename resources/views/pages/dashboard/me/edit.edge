@@ -7,46 +7,42 @@
 
     @include('partials/user/update-avatar')
 
-    <div user-fields-form>
-      <form
-        up-submit
-        up-fail-target="[user-fields-form]"
-        method="POST"
-        action="{{ route('me.update') }}"
-        class="flex flex-col gap-4 mt-4 max-w-lg"
+    <form
+      up-submit
+      method="POST"
+      action="{{ route('me.update') }}"
+      class="flex flex-col gap-4 mt-4 max-w-lg"
+    >
+      {{ csrfField() }}
+      @!form.input({
+        label: 'Nome',
+        name: 'name',
+        value: flashMessages.get('name') || auth.user.name
+      })
 
-      >
-        {{ csrfField() }}
-        @!form.input({
-          label: 'Nome',
-          name: 'name',
-          value: flashMessages.get('name') || auth.user.name
+      @!form.input({
+        label: 'E-mail',
+        name: 'email',
+        type: 'email',
+        value: flashMessages.get('email') || auth.user.email
+      })
+
+      <div class="flex justify-between">
+        @!button({
+          component: 'a',
+          href: route('me'),
+          variant: 'subtle',
+          color: 'gray',
+          label: 'Voltar',
+          leftIcon: 'ph-arrow-left',
         })
 
-        @!form.input({
-          label: 'E-mail',
-          name: 'email',
-          type: 'email',
-          value: flashMessages.get('email') || auth.user.email
+        @!button({
+          type: 'submit',
+          label: 'Salvar',
+          rightIcon: 'ph:floppy-disk'
         })
-
-        <div class="flex justify-between">
-          @!button({
-            component: 'a',
-            href: route('me'),
-            variant: 'subtle',
-            color: 'gray',
-            label: 'Voltar',
-            leftIcon: 'ph-arrow-left',
-          })
-
-          @!button({
-            type: 'submit',
-            label: 'Salvar',
-            rightIcon: 'ph:floppy-disk'
-          })
-        </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </main>
 @end

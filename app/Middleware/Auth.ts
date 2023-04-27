@@ -61,7 +61,7 @@ export default class AuthMiddleware {
    * Handle request
    */
   public async handle(
-    { auth }: HttpContextContract,
+    { auth, request, response }: HttpContextContract,
     next: () => Promise<void>,
     customGuards: (keyof GuardsList)[]
   ) {
@@ -71,6 +71,13 @@ export default class AuthMiddleware {
      */
     const guards = customGuards.length ? customGuards : [auth.name]
     await this.authenticate(auth, guards)
+
+    const isCreatingPassword =
+      request.matchesRoute('create-password') || request.matchesRoute('create-password.store')
+
+    if (!auth.user?.isVerified && !isCreatingPassword) {
+      return response.redirect().toRoute('create-password')
+    }
     await next()
   }
 }
