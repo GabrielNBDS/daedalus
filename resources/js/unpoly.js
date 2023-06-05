@@ -6,6 +6,12 @@ up.fragment.config.runScripts = true
 up.link.config.followSelectors.push('a[href]')
 up.form.config.submitSelectors.push(['form'])
 
+up.on('up:layer:dismissed', (event) => {
+  if (event?.origin?.baseURI) {
+    up.render({ target: 'body', url: event.origin.baseURI, navigate: true })
+  }
+})
+
 up.on('up:fragment:loaded', (event) => {
   let fullReload = event.response.getHeader('X-Full-Reload')
 
