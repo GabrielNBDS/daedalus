@@ -137,7 +137,7 @@ export default class Up {
     return this.getProperty('X-Up-Mode')
   }
 
-  public isModal() {
+  public isInModal() {
     return this.getProperty('X-Up-Mode') === 'modal'
   }
 
