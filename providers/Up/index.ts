@@ -137,6 +137,10 @@ export default class Up {
     return this.getProperty('X-Up-Mode')
   }
 
+  public isModal() {
+    return this.getProperty('X-Up-Mode') === 'modal'
+  }
+
   public getReloadFromTime() {
     return this.getProperty('X-Up-Reload-From-Time')
   }
