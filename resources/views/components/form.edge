@@ -1,0 +1,12 @@
+@set('method', method || 'POST')
+
+<form
+  up-submit
+  method="{{ method }}"
+  {{{ up.isInModal() ? 'up-layer="parent or root"' : ''}}}
+  class="{{ excludeDefaultStyles ? '' : 'flex flex-col gap-4 mt-4' }} {{ className }}"
+  {{ $props.serializeExcept(['method']) }}
+>
+  {{ csrfField() }}
+  {{{ await $slots.main() }}}
+</form>
