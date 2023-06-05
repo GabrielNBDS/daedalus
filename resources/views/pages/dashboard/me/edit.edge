@@ -3,9 +3,11 @@
 
 @section('body')
   <main class="max-w-screen-xl mx-auto w-full px-4 py-8">
-    <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Seu perfil</h1>
+    @if(!up.isModal())
+      <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Seu perfil</h1>
+    @endif
 
-    @include('partials/user/update-avatar')
+    @include('partials/me/update-avatar')
 
     <form
       up-submit
@@ -28,19 +30,22 @@
       })
 
       <div class="flex justify-between">
-        @!button({
-          component: 'a',
-          href: route('me'),
-          variant: 'subtle',
-          color: 'gray',
-          label: 'Voltar',
-          leftIcon: 'ph-arrow-left',
-        })
+        @if(!up.isModal())
+          @!button({
+            component: 'a',
+            href: route('me'),
+            variant: 'subtle',
+            color: 'gray',
+            label: 'Voltar',
+            leftIcon: 'ph-arrow-left',
+          })
+        @endif
 
         @!button({
           type: 'submit',
           label: 'Salvar',
-          rightIcon: 'ph:floppy-disk'
+          rightIcon: 'ph:floppy-disk',
+          className: up.isModal() ? 'w-full' : ''
         })
       </div>
     </form>
