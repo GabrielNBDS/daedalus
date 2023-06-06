@@ -1,5 +1,6 @@
-<div role="alert" class="flex flex-col gap-2 rounded border-l-4 border-red-5 bg-red-1 p-4">
+<div role="alert" class="alert alert-error">
   @if(title)
+    @svg('ph:x-circle', { class: 'text-2xl' })
     <strong class="block font-medium text-red-6">{{ title }}</strong>
   @end
 
