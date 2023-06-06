@@ -29,4 +29,4 @@ up.on('up:fragment:loaded', (event) => {
   }
 })
 
-up.log.enable()
+up.log.disable()

@@ -19,7 +19,25 @@
   </div>
 
   <script>
-    window.Alpine.start()
+    window.onload = () => {
+      window.Alpine.start()
+
+      var sidebarLinks = document.querySelectorAll('.sidebarLink')
+
+      var initialActiveLink = document.querySelector(`#${window.location.pathname.split('/')[2]}`)
+      initialActiveLink?.classList?.add('active')
+
+      up.on('up:location:changed', function() {
+        Alpine.store('sidebar').close()
+
+        sidebarLinks.forEach(function(element) {
+          element?.classList?.remove('active')
+        })
+
+        var activeLink = document.querySelector(`#${window.location.pathname.split('/')[2]}`)
+        activeLink?.classList?.add('active')
+      });
+    };
   </script>
 </body>
 </html>
