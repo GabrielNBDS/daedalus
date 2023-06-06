@@ -1,13 +1,16 @@
 @set('value', value || '1')
+@set('side', side || 'left')
 
-<div>
-  <label for="{{ name }}" class="flex gap-4">
+<div class="form-control max-w-max">
+  <label  for="{{ name }}" class="label cursor-pointer">
+    @if(side == 'left')
+      <span class="label-text">{{ label }}</span>
+    @endif
     <input
       type="checkbox"
       class="{{
         [
-          'checkbox',
-          color ? `checkbox-${color}` : '',
+          'checkbox mx-4',
           className
         ].filter(item => item !== '').join(' ').trim()
       }}"
@@ -16,10 +19,9 @@
       value="{{ value }}"
       {{ flashMessages.get(name) === value ? "checked" : "" }}
     />
-
-    <span class="block text-sm font-medium text-gray-7">
-      {{ label }}
-    </span>
+    @if(side == 'right')
+      <span class="label-text">{{ label }}</span>
+    @endif
   </label>
 
   @if(!hideError)

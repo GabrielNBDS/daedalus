@@ -3,7 +3,7 @@
     @!form.label({ label, name})
   @end
 
-  <select id="{{ name }}" class="input" {{ $props.serializeExcept(['value', 'items', 'selected']) }}>
+  <select id="{{ name }}" class="select select-bordered w-full" {{ $props.serializeExcept(['value', 'items', 'selected']) }}>
     @each(item in items)
       <option
         {{ selected === item.value ? 'selected' : ''}}

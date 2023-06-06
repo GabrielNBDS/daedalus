@@ -2,11 +2,8 @@
 @set('title', `Editar ${user.name}`)
 
 @section('body')
-  <main class="max-w-screen-xl mx-auto w-full px-2 md:px-4 my-8 ">
-    <a href="{{ route('users.index') }}" class="text-gray-7 flex items-center gap-1 text-sm mb-2">
-      {{ svg('ph-arrow-left', { class: 'text-lg'})}} Voltar
-    </a>
-    <div class="border border-gray-2 rounded-lg relative p-4">
+  <main class="w-full px-2 md:px-4 my-8 ">
+    <div class="relative p-4">
       <div class="flex flex-wrap items-center gap-4">
         @!avatar({ size: 'lg', name: user.name, url: user.avatar?.url })
 
@@ -30,27 +27,25 @@
               </button>
             @end
 
-            <div class="p-8 bg-white rounded shadow-2xl mb-[60vh]">
-              <h2 class="text-lg font-bold">Quer mesmo deletar "{{ user.name }}"?</h2>
+            @!modal.closeButton()
 
-              <p class="mt-2 text-sm text-gray-500">
-                Esta ação não pode ser desfeita.
-              </p>
+            <h2 class="text-xl font-bold text-base-content">Quer mesmo remover "{{ user.name }}"?</h2>
 
-              <div class="flex items-center gap-2 justify-end mt-8 text-xs">
-                @!button({ '@click': 'showModal = false', type: 'button', label: 'Não', color: 'gray', variant: 'light' })
+            <p class="mt-2 text-lg text-base-content/60">
+              Esta ação não pode ser desfeita.
+            </p>
 
-                <form action="{{ route('users.delete', [user.id]) }}" method="POST">
-                  {{ csrfField() }}
-                  @!button({ label: 'Sim, tenho certeza.', color: 'red', type: 'submit' })
-                </form>
-              </div>
-            </div>
+            <form action="{{ route('users.delete', [user.id]) }}" method="POST">
+              {{ csrfField() }}
+              <button type="submit" class="btn btn-error btn-block mt-8">Sim, tenho certeza.</button>
+            </form>
           @end
         @end
 
         <a href="{{ route('users.edit', [user.slug])}}" class="text-gray-7 text-2xl cursor-pointer">{{ svg('ph:note-pencil') }}</a>
       </div>
     </div>
+
+    <a href="{{ route('users.index') }}" class="btn btn-link text-neutral">Voltar</a>
   </main>
 @end

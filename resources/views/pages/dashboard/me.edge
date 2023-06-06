@@ -2,7 +2,7 @@
 @set('title', 'Seu Perfil')
 
 @section('body')
-  <main class="max-w-screen-xl mx-auto w-full px-4 py-8">
+  <main class="w-full px-4 py-8">
     <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Seu perfil</h1>
 
     <div class="flex items-center gap-4">
@@ -16,10 +16,28 @@
       </div>
     </div>
 
-    <div class="flex flex-wrap gap-4 mt-8">
-      @!button({ label: 'Editar perfil', component: 'a', href: route('me.edit'), rightIcon: 'ph:user', })
-      @!button({ label: 'Trocar senha', component: 'a', href: route('me.change-password-view'), rightIcon: 'ph:lock' })
-      @!button({ label: 'Sair', color: 'red', rightIcon: 'ph:sign-out', component: 'a', href: route('logout') })
+    <div class="flex flex-col sm:flex-row flex-wrap gap-4 mt-8">
+      <a
+        class="btn btn-primary"
+        href="{{ route('me.edit') }}"
+        up-layer="new"
+        up-accept-location="{{ route('me') }}"
+        up-on-accepted="up.reload('[layout-main], [layout-sidebar]')"
+      >
+        Editar perfil
+      </a>
+      <a
+        class="btn btn-primary"
+        href="{{ route('me.change-password-view') }}"
+        up-layer="new"
+        up-accept-location="{{ route('me') }}"
+      >
+        Trocar senha
+      </a>
+      <form action="{{ route('logout')}}" method="POST">
+        {{ csrfField() }}
+        <button type="submit" class="btn btn-error btn-block">Sair</button>
+      </form>
     </div>
   </main>
 @end

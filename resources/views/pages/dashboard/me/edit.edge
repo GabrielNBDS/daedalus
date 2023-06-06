@@ -2,20 +2,16 @@
 @set('title', 'Editar Seu Perfil')
 
 @section('body')
-  <main class="max-w-screen-xl mx-auto w-full px-4 py-8">
-    @if(!up.isModal())
-      <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Seu perfil</h1>
+  <main class="w-full {{ up.isInModal() ? 'px-4' : 'px-4 py-8' }}">
+    @if(!up.isInModal())
+      <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Editar perfil</h1>
     @endif
 
     @include('partials/me/update-avatar')
 
-    <form
-      up-submit
-      method="POST"
-      action="{{ route('me.update') }}"
-      class="flex flex-col gap-4 mt-4 max-w-lg"
-    >
-      {{ csrfField() }}
+    @component('components/form', {
+      action: route('me.update')
+    })
       @!form.input({
         label: 'Nome',
         name: 'name',
@@ -30,24 +26,14 @@
       })
 
       <div class="flex justify-between">
-        @if(!up.isModal())
-          @!button({
-            component: 'a',
-            href: route('me'),
-            variant: 'subtle',
-            color: 'gray',
-            label: 'Voltar',
-            leftIcon: 'ph-arrow-left',
-          })
+        @if(!up.isInModal())
+          <a href="{{ route('me') }}" class="btn btn-link text-neutral">Voltar</a>
         @endif
 
-        @!button({
-          type: 'submit',
-          label: 'Salvar',
-          rightIcon: 'ph:floppy-disk',
-          className: up.isModal() ? 'w-full' : ''
-        })
+        <button type="submit" class="btn btn-primary {{ up.isInModal() ? 'btn-block' : '' }}">
+          Salvar
+        </button>
       </div>
-    </form>
+    @endcomponent
   </main>
 @end

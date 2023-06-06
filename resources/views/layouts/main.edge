@@ -8,7 +8,9 @@
   @entryPointStyles('app')
   @entryPointScripts('app')
 </head>
-<body layout-root>
+<body layout-root class="bg-base-100">
+  @include('partials/toasts')
+
   @!section('body')
   <script>
     window.Alpine.start()

@@ -5,17 +5,15 @@
   <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <h1 class="text-2xl font-bold sm:text-3xl text-center">Bem-vindo!</h1>
 
-    <form
-      method="POST"
-      action="{{ route('login.post') }}"
-      class="mx-auto mt-8 mb-0 max-w-md space-y-4"
-    >
-      {{ csrfField() }}
+    @component('components/form', {
+      action: route('login.post'),
+      className: 'max-w-md'
+    })
       @!form.input({ label: 'E-mail', name: 'email' })
 
       @!form.input({ label: 'Senha', name: 'password', type: 'password' })
 
-      @!form.checkbox({ label: 'Lembrar-se', name: 'rememberMe' })
+      @!form.checkbox({ label: 'Lembrar-se', name: 'rememberMe', className: 'checkbox-primary' })
 
       @if(flashMessages.has('auth.errors'))
         @!alert({ title: 'Credenciais inválidas' })
@@ -24,8 +22,8 @@
       <div class="flex items-center justify-between">
         <a class="underline text-sm text-gray-5" href="">Esqueci a senha</a>
 
-        @!button({ type: 'submit', label: 'Entrar'})
+        <button type="submit" class="btn btn-primary">Entrar</button>
       </div>
-    </form>
+    @endcomponent
   </div>
 @end

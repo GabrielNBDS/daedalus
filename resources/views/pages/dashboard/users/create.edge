@@ -2,19 +2,13 @@
 @set('title', 'Criar usuário')
 
 @section('body')
-  <main class="max-w-screen-xl mx-auto w-full px-4 py-8">
-    <h1 class="text-xl font-bold text-gray-8 md:text-2xl">Novo usuário</h1>
-    <p class="mb-8 text-gray-6">A senha será "123456" e será pedido para trocar no primeiro login.</p>
+  <main class="w-full {{ up.isInModal() ? 'px-4' : 'px-4 py-8' }}">
+    <h1 class="text-xl font-bold text-base-content md:text-2xl">Novo usuário</h1>
+    <p class="mb-4 text-base-content/60">A senha será "123456" e será pedido para trocar no primeiro login.</p>
 
-    <form
-      up-submit
-      up-target="[layout-main]"
-      up-fail-target="form"
-      method="POST"
-      action="{{ route('users.store') }}"
-      class="flex flex-col gap-4 mt-4 max-w-lg"
-    >
-      {{ csrfField() }}
+    @component('components/form', {
+      action: route('users.store'),
+    })
       @!form.input({
         label: 'Nome',
         name: 'name',
@@ -29,21 +23,14 @@
       })
 
       <div class="flex justify-between">
-        @!button({
-          component: 'a',
-          href: route('users.index'),
-          variant: 'subtle',
-          color: 'gray',
-          label: 'Voltar',
-          leftIcon: 'ph-arrow-left',
-        })
+        @if(!up.isInModal())
+          <a href="{{ route('users.index') }}" class="btn btn-link text-neutral">Voltar</a>
+        @endif
 
-        @!button({
-          type: 'submit',
-          label: 'Salvar',
-          rightIcon: 'ph:floppy-disk'
-        })
+        <button type="submit" class="btn btn-primary {{ up.isInModal() ? 'btn-block' : '' }}">
+          Salvar
+        </button>
       </div>
-    </form>
+    @endcomponent
   </main>
 @end

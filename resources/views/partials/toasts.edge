@@ -1,0 +1,14 @@
+<div up-hungry layout-toasts id="toasts">
+  @if(flashMessages.has('errors'))
+    @!toast.error({ message: "Revise os campos do formulário." })
+  @end
+
+  @each(toast in flashMessages.get("toast"))
+    @if(toast.type === "success")
+      @!toast.success({ message: toast.message })
+    @end
+    @if(toast.type === "error")
+      @!toast.error({ message: toast.message })
+    @end
+  @end
+</div>

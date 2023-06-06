@@ -14,7 +14,7 @@
     <div
       x-show="showModal"
       x-transition.opacity
-      class="fixed inset-0 bg-[#00000040]"
+      class="fixed inset-0 z-50 bg-[#00000066]"
     ></div>
   </template>
 
@@ -22,12 +22,14 @@
     <div
       x-show="showModal"
       x-transition
-      class="fixed inset-0 z-50 flex justify-center items-center"
+      class="fixed inset-0 z-50 flex justify-center pt-6 items-end md:items-start"
     >
       <div
         @click.away="showModal = false"
       >
-        {{{ await $slots.main() }}}
+        <div class="p-5 relative bg-base-100 rounded shadow-sm w-screen md:max-w-2xl">
+          {{{ await $slots.main() }}}
+        </div>
       </div>
     </div>
   </template>

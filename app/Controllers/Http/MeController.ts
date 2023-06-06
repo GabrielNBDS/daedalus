@@ -44,6 +44,8 @@ export default class MeController {
 
     await user.save()
 
+    session.flash('toast', [{ type: 'success', message: 'Perfil atualizado.' }])
+
     return response.redirect().toRoute('me')
   }
 
@@ -99,6 +101,8 @@ export default class MeController {
     user.password = newPassword
 
     await user.save()
+
+    session.flash('toast', [{ type: 'success', message: 'Senha alterada.' }])
 
     return response.redirect().toRoute('me')
   }

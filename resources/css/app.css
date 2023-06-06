@@ -1,26 +1,22 @@
 @import "./tailwind.css";
-@import "./button.css";
-@import "./input.css";
-@import "./checkbox.css";
-@import "./badge.css";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.btn {
+  @apply active:!translate-y-[2px]
+}
+
+up-modal-box {
+  @apply mt-auto md:mt-0 rounded-b-none md:rounded-b-lg rounded-lg !shadow-sm !w-screen md:!max-w-2xl !bg-base-100
+}
+
+up-modal-viewport {
+  @apply !p-0 md:!px-4 md:!py-6
+}
 
 .sidebarLink {
-  @apply flex items-center gap-2 rounded-lg px-4 py-2 text-gray-6 hover:bg-gray-1 hover:text-gray-7;
+  @apply flex items-center gap-2 rounded-lg px-4 py-2 text-base-content hover:bg-base-200;
 }
 
 .sidebarLink.active {
-  @apply text-gray-7 bg-gray-1;
-}
-
-.th {
-  @apply whitespace-nowrap px-4 py-2 text-left font-medium text-gray-9
-}
-
-.tr {
-  @apply hover:bg-gray-0
-}
-
-.td {
-  @apply whitespace-nowrap px-4 py-2 text-gray-7
+  @apply bg-base-200;
 }

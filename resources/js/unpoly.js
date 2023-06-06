@@ -13,7 +13,7 @@ up.on('up:layer:dismissed', (event) => {
 })
 
 up.on('up:fragment:loaded', (event) => {
-  let fullReload = event.response.getHeader('X-Full-Reload')
+  let fullReload = event.response.header('X-Full-Reload')
 
   if (fullReload) {
     // Prevent the fragment update and don't update browser history
@@ -22,4 +22,11 @@ up.on('up:fragment:loaded', (event) => {
     // Make a full page load for the same request.
     event.request.loadPage()
   }
+
+  // Make unpoly aware of adonis errors
+  if (event.response.context?.['E_VALIDATION_FAILURE']) {
+    event.renderOptions.fail = true
+  }
 })
+
+up.log.enable()

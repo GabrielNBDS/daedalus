@@ -20,7 +20,7 @@ export default class AuthController {
     response.redirect('/dashboard')
   }
 
-  @Get('/logout', 'logout')
+  @Post('/logout', 'logout')
   public async logout({ auth, response }: HttpContextContract) {
     await auth.logout()
     return response.redirect().toRoute('login')

@@ -12,13 +12,9 @@
         up-fail-target="[avatar-form]"
       >
         {{ csrfField() }}
-        @!button({
-          component: 'label',
-          label: 'Trocar foto',
-          rightIcon: 'ph:camera',
-          className: 'cursor-pointer',
-          for: 'avatar'
-        })
+        <label class="btn btn-primary" for="avatar">
+          Trocar foto
+        </label>
 
         <input
           type="file"
@@ -36,13 +32,9 @@
         >
           {{ csrfField() }}
 
-          @!button({
-            label: 'Remover',
-            rightIcon: 'ph:trash',
-            variant: 'light',
-            color: 'red',
-            className: 'w-full'
-          })
+          <button type="submit" class="btn btn-error w-full">
+            Remover
+          </button>
         </form>
       @endif
     </div>

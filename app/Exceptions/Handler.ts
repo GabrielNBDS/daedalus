@@ -31,6 +31,8 @@ export default class ExceptionHandler extends HttpExceptionHandler {
   public async handle(error: any, ctx: HttpContextContract) {
     if (error.code === 'E_VALIDATION_FAILURE') {
       ctx.up.setTarget(ctx.up.getFailTarget())
+      ctx.up.setMode(ctx.up.getFailMode())
+      ctx.up.setContext('{ "E_VALIDATION_FAILURE": true }')
     }
 
     if (!error.status || this.expandedStatusPages[error.status]) {

@@ -2,11 +2,19 @@
 @set('title', 'Users')
 
 @section('body')
-  <main class="max-w-screen-xl mx-auto w-full px-4 py-8">
+  <main class="w-full px-4 py-8">
     <div class="flex justify-between">
       <h1 h1 class="text-3xl mb-4 font-bold text-gray-7 md:text-2xl">Usuários</h1>
 
-      @!button({ label: 'Novo usuário', component: 'a', href: route('users.create') })
+      <a
+        class="btn btn-primary"
+        href="{{ route('users.create') }}"
+        up-layer="new"
+        up-accept-location="{{ route('users.index') }}"
+        up-on-accepted="up.reload('[layout-main]')"
+      >
+        Novo usuário
+      </a>
     </div>
 
     @component('components/table/wrapper',
@@ -16,17 +24,19 @@
       }
     )
       @each(user in users)
-        <tr class="tr"  up-target="[layout-main]">
-          <td class="td !font-medium">
+        <tr class="hover">
+          <td>
             <div class="flex gap-4 items-center">
               @!avatar({ size: 'sm', name: user.name, url: user.avatar?.url })
 
               <p>{{ user.name }}</p>
             </div>
           </td>
-          <td class="td">{{ user.role.name }}</td>
-          <td class="td">{{ user.email }}</td>
-          <td class="td text-right max-w-min"><a href="{{ route('users.read', [user.slug]) }}">Detalhes</a></td>
+          <td>{{ user.role.name }}</td>
+          <td>{{ user.email }}</td>
+          <th>
+            <a href="{{ route('users.read', [user.slug]) }}" class="text-right btn btn-ghost btn-xs">Detalhes</a>
+          </th>
         </tr>
       @end
     @end

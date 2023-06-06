@@ -1,0 +1,12 @@
+<div class="toast toast-center" x-data="{ showAlert: false }">
+  <div
+    x-cloak
+    x-transition.duration.200ms
+    x-show="showAlert"
+    x-init="setTimeout(() => showAlert = true, 50);setTimeout(() => showAlert = false, 2500)"
+    role="alert"
+    class="alert alert-error"
+  >
+    <span>{{ message }}</span>
+  </div>
+</div>
