@@ -5,13 +5,13 @@
     @if((model.currentPage - 1) >= 1)
       <li>
         <a data-page="{{ model.currentPage - 1 }}" class="inline-flex items-center justify-center w-8 h-8 border border-base-300 rounded-[--rounded-btn] bg-base-100 cursor-pointer">
-          @svg('ph:caret-left', { class: 'w-4 h-4 text-base-content'})
+          @svg('lucide:chevron-left', { class: 'w-4 h-4 text-base-content'})
         </a>
       </li>
     @else
       <li>
         <p class="inline-flex items-center justify-center w-8 h-8 border border-base-300 rounded-[--rounded-btn] bg-base-100 cursor-not-allowed">
-          @svg('ph:caret-left', { class: 'w-4 h-4 text-base-content'})
+          @svg('lucide:chevron-left', { class: 'w-4 h-4 text-base-content'})
         </p>
       </li>
     @end
@@ -27,7 +27,7 @@
         @end
       @else
         <li class="inline-flex items-center justify-center w-8 h-8 border border-base-300 rounded-[--rounded-btn]">
-          @svg('ph:dots-three-light', { class: 'w-4 h-4 text-base-content'})
+          @svg('lucide:more-horizontal', { class: 'w-4 h-4 text-base-content'})
         </li>
       @end
     @end
@@ -35,13 +35,13 @@
     @if(model.hasMorePages)
       <li>
         <a data-page="{{ model.currentPage + 1 }}" class="inline-flex items-center justify-center w-8 h-8 border border-base-300 rounded-[--rounded-btn] bg-base-100 cursor-pointer">
-          @svg('ph:caret-right', { class: 'w-4 h-4 text-base-content'})
+          @svg('lucide:chevron-right', { class: 'w-4 h-4 text-base-content'})
         </a>
       </li>
     @else
       <li>
         <p class="inline-flex items-center justify-center w-8 h-8 border border-base-300 rounded-[--rounded-btn] bg-base-100 cursor-not-allowed">
-          @svg('ph:caret-right', { class: 'w-4 h-4 text-base-content'})
+          @svg('lucide:chevron-right', { class: 'w-4 h-4 text-base-content'})
         </p>
       </li>
     @end
@@ -57,5 +57,4 @@
         window.location.search.slice(1).replace(/page=[0-9]/, '')
     })
   </script>
-  @end
-
+@end

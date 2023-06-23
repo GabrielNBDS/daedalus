@@ -23,7 +23,7 @@
                 @click="showModal = !showModal"
                 class="text-gray-7 text-2xl cursor-pointer"
               >
-                {{ svg('ph:trash') }}
+                {{ svg('lucide:trash') }}
               </button>
             @end
 
@@ -42,7 +42,7 @@
           @end
         @end
 
-        <a href="{{ route('users.edit', [user.slug])}}" class="text-gray-7 text-2xl cursor-pointer">{{ svg('ph:note-pencil') }}</a>
+        <a href="{{ route('users.edit', [user.slug])}}" class="text-gray-7 text-2xl cursor-pointer">{{ svg('lucide:edit') }}</a>
       </div>
     </div>
 

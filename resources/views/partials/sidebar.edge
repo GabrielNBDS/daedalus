@@ -8,20 +8,20 @@
       class="flex max-w-min"
     >
       <p
-        class="grid h-10 w-32 place-content-center rounded-[--rounded-btn] bg-base-200 text-xs text-base-content"
+        class="grid h-10 w-32 place-content-center rounded-[--rounded-btn] bg-accent text-accent-content text-xs"
       >
         Logo
       </p>
     </a>
 
     <button @click="$store.sidebar.isOpen = true">
-      @svg('ph:list', { class: 'w-8 h-8 text-base-content', size: 'none' })
+      @svg('lucide:menu', { class: 'w-8 h-8 text-base-content', size: 'none' })
     </button>
   </header>
 
   <div
     x-bind:class="! $store.sidebar.isOpen ? '' : '!flex'"
-    class="top-0 hidden lg:flex h-screen flex-col w-screen lg:max-w-xs justify-between border-r border-base-300 bg-base-100 fixed left-0"
+    class="top-0 z-50 hidden lg:flex h-screen flex-col w-screen lg:max-w-xs justify-between border-r border-base-300 bg-base-100 fixed left-0"
   >
     <div class="px-4">
       <div class="flex justify-between  h-16 items-center">
@@ -35,7 +35,7 @@
 
         <button class="lg:hidden" @click="$store.sidebar.isOpen = false">
           <i>
-            @svg('ph:x', { class: 'w-8 h-8 text-base-content', size: 'none' })
+            @svg('lucide:x', { class: 'w-8 h-8 text-base-content', size: 'none' })
           </i>
         </button>
       </div>
