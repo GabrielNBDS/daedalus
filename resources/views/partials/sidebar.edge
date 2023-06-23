@@ -8,7 +8,7 @@
       class="flex max-w-min"
     >
       <p
-        class="grid h-10 w-32 place-content-center rounded-lg bg-base-200 text-xs text-base-content"
+        class="grid h-10 w-32 place-content-center rounded-[--rounded-btn] bg-base-200 text-xs text-base-content"
       >
         Logo
       </p>
@@ -27,7 +27,7 @@
       <div class="flex justify-between  h-16 items-center">
         <a href="/dashboard" class="flex max-w-min">
           <span
-            class="grid h-10 w-32 place-content-center rounded-lg bg-base-200 text-xs text-base-content"
+            class="grid h-10 w-32 place-content-center rounded-[--rounded-btn] bg-accent text-accent-content text-xs"
           >
             Logo
           </span>
@@ -52,7 +52,7 @@
     >
       <a
         href="{{ route('me') }}"
-        class="flex items-center gap-2 bg-base-100 hover:bg-base-200 transition-all rounded-md py-4 px-2"
+        class="flex items-center gap-2 bg-base-100 hover:bg-base-200 text-base-content transition-all rounded-[--rounded-btn] py-4 px-2"
       >
         @!avatar({ size: 'sm', name: auth.user.name, url: auth.user.avatar?.url })
 

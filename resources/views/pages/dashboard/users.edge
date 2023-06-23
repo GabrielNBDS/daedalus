@@ -2,8 +2,8 @@
 @set('title', 'Users')
 
 @section('body')
-  <main class="w-full px-4 py-8">
-    <div class="flex justify-between">
+  <main class="w-full py-8">
+    <div class="px-4 flex justify-between">
       <h1 h1 class="text-3xl mb-4 font-bold text-gray-7 md:text-2xl">Usuários</h1>
 
       <a
@@ -20,7 +20,8 @@
     @component('components/table/wrapper',
       {
         head: ['Usuário', 'Papel', 'E-mail'],
-        model: users
+        model: users,
+        className: 'mt-4',
       }
     )
       @each(user in users)
