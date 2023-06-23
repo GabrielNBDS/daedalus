@@ -8,12 +8,7 @@
   <input
     id="{{ name }}"
     value="{{ value }}"
-    class="{{
-      [
-        'input input-bordered',
-        className
-      ].filter(item => item !== '').join(' ').trim()
-    }}"
+    class="{{ clsx('input input-bordered', className) }}"
     {{ $props.serializeExcept(['label', 'className', 'component', 'size', 'rounded', 'color', 'variant', 'fatBorder']) }}
   />
 

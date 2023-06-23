@@ -8,12 +8,7 @@
     @endif
     <input
       type="checkbox"
-      class="{{
-        [
-          'checkbox mx-4',
-          className
-        ].filter(item => item !== '').join(' ').trim()
-      }}"
+      class="{{ clsx('checkbox mx-4', className) }}"
       id="{{ name }}"
       name="{{ name }}"
       value="{{ value }}"

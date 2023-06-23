@@ -4,7 +4,7 @@
   up-submit
   method="{{ method }}"
   {{{ up.isInModal() ? 'up-layer="parent or root"' : ''}}}
-  class="{{ excludeDefaultStyles ? '' : 'flex flex-col gap-4 mt-4 mx-auto' }} {{ className }}"
+  class="{{ clsx( { 'flex flex-col gap-4 mt-4 mx-auto': !excludeDefaultStyles }, className) }}"
   {{ $props.serializeExcept(['method']) }}
 >
   {{ csrfField() }}
