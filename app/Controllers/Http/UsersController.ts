@@ -32,9 +32,9 @@ export default class UsersController {
   public async store({ bouncer, request, response }: HttpContextContract) {
     await bouncer.with('UserPolicy').authorize('create')
 
-    const { name, email } = await request.validate(CreateUserValidator)
+    const { name, email, roleId } = await request.validate(CreateUserValidator)
 
-    await User.create({ name, email, password: '123456' })
+    await User.create({ name, email, password: '123456', roleId })
 
     return response.redirect().toRoute('users.index')
   }

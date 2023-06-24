@@ -1,5 +1,6 @@
 @layout('layouts/dashboard')
 @set('title', 'Criar usuário')
+@set('rolesSelectValues', await getRolesSelectValues())
 
 @section('body')
   <main class="w-full {{ up.isInModal() ? 'px-4' : 'px-4 py-8' }}">
@@ -21,6 +22,8 @@
         type: 'email',
         value: flashMessages.get('email')
       })
+
+      @!form.select({ label: 'Papel', name: 'roleId', items: rolesSelectValues, selected: flashMessages.get('roleId') ?? Roles.USER })
 
       <div class="flex justify-between">
         @if(!up.isInModal())
