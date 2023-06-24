@@ -6,7 +6,7 @@
   <select id="{{ name }}" class="select select-bordered w-full" {{ $props.serializeExcept(['value', 'items', 'selected']) }}>
     @each(item in items)
       <option
-        {{ selected === item.value ? 'selected' : ''}}
+        {{ selected == item.value ? 'selected' : ''}}
         value="{{ item.value }}"
       />
         {{ item?.label || item?.value  }}
