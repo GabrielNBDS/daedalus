@@ -2,7 +2,7 @@
 @set('title', `Editar ${user.name}`)
 
 @section('body')
-  <main class="w-full px-2 md:px-4 my-8 ">
+  <main class="w-full px-2 md:px-4 py-8 page-card">
     <div class="relative p-4">
       <div class="flex flex-wrap items-center gap-4">
         @!avatar({ size: 'lg', name: user.name, url: user.avatar?.url })

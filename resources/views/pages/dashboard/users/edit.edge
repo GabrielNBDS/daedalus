@@ -3,7 +3,7 @@
 @set('rolesSelectValues', await getRolesSelectValues())
 
 @section('body')
-  <main class="w-full px-4 py-8">
+  <main class="w-full px-4 py-8 page-card">
     <h1 class="mb-8 text-xl font-bold text-gray-8 md:text-2xl">Editar "{{ user.name }}"</h1>
     @component('components/form', {
       action: route('users.update', { id: user.id })

@@ -3,7 +3,7 @@
 @set('rolesSelectValues', await getRolesSelectValues())
 
 @section('body')
-  <main class="w-full {{ up.isInModal() ? 'px-4' : 'px-4 py-8' }}">
+  <main class="{{ clsx('w-full', up.isInModal() ? 'px-4' : 'px-4 py-8 page-card') }}">
     <h1 class="text-xl font-bold text-base-content md:text-2xl">Novo usuário</h1>
     <p class="mb-4 text-base-content/60">A senha será "123456" e será pedido para trocar no primeiro login.</p>
 

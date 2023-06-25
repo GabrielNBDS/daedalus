@@ -5,8 +5,12 @@
   @apply active:!translate-y-[2px]
 }
 
+.page-card {
+  @apply bg-base-100 rounded-[--rounded-btn] shadow-sm
+}
+
 up-modal-box {
-  @apply mt-auto md:mt-0 rounded-b-none md:rounded-b-lg rounded-lg !shadow-sm !w-screen md:!max-w-2xl !bg-base-100
+  @apply mt-auto md:mt-0 rounded-b-none md:rounded-b-[--rounded-btn] rounded-[--rounded-btn] !shadow-sm !w-screen md:!max-w-2xl !bg-base-100
 }
 
 up-modal-viewport {

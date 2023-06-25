@@ -8,10 +8,10 @@
   @entryPointStyles('app')
   @entryPointScripts('app')
   </head>
-<body layout-root class="bg-base-100">
+<body layout-root class="bg-base-200/80 h-screen w-screen">
   @include('partials/toasts')
 
-  <div class="flex flex-col lg:flex-row lg:ml-80 mt-16 lg:mt-0">
+  <div class="flex flex-col lg:flex-row lg:ml-[312px] mt-16 p-3 lg:mt-0">
     @include('partials/sidebar')
     <div up-main layout-main class="flex flex-col w-full">
       @!section('body')

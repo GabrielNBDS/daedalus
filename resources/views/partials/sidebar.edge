@@ -21,7 +21,7 @@
 
   <div
     x-bind:class="! $store.sidebar.isOpen ? '' : '!flex'"
-    class="top-0 z-50 hidden lg:flex h-screen flex-col w-screen lg:max-w-xs justify-between border-r border-base-300 bg-base-100 fixed left-0"
+    class="top-0 z-50 hidden lg:flex h-screen lg:h-[calc(100vh-24px)] shadow-sm lg:rounded-[--rounded-btn] flex-col w-screen lg:max-w-[300px] lg:m-3 justify-between bg-base-100 fixed left-0"
   >
     <div class="px-4">
       <div class="flex justify-between  h-16 items-center">
@@ -48,7 +48,7 @@
     </div>
 
     <div
-      class="sticky inset-x-0 bottom-0 border-t border-base-300 p-4"
+      class="sticky inset-x-0 bottom-0 border-t border-base-300 p-2"
     >
       <a
         href="{{ route('me') }}"
